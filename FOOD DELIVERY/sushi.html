@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Суші — Food Delivery</title>
+<script src="cart.js"></script>
+
+<style>
+  body {
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ffcc00;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .item {
+    background: #222;
+    padding: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #333;
+    transition: 0.3s;
+  }
+
+  .item:hover {
+    border-color: #ffcc00;
+    transform: scale(1.03);
+  }
+
+  .item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .name {
+    font-size: 20px;
+    margin: 10px 0 5px;
+    color: #ffcc00;
+  }
+
+  .price {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #bbb;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .btn:hover {
+    background: #ffaa00;
+  }
+
+  .back {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 22px;
+    color: #ffcc00;
+    text-decoration: none;
+  }
+
+  .back:hover {
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<h1>🍣 Меню суші</h1>
+
+<div class="grid">
+
+  <!-- Філадельфія -->
+  <div class="item">
+    <img src="sushi_philadelphia.jpg">
+    <div class="name">Філадельфія</div>
+    <div class="price">199 грн</div>
+    <button class="btn" onclick="addToCart('Філадельфія',199,'sushi_philadelphia.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Філадельфія з лососем -->
+  <div class="item">
+    <img src="sushi_phila_salmon.jpg">
+    <div class="name">Філадельфія з лососем</div>
+    <div class="price">219 грн</div>
+    <button class="btn" onclick="addToCart('Філадельфія з лососем',219,'sushi_phila_salmon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Каліфорнія краб -->
+  <div class="item">
+    <img src="sushi_california_crab.jpg">
+    <div class="name">Каліфорнія з крабом</div>
+    <div class="price">179 грн</div>
+    <button class="btn" onclick="addToCart('Каліфорнія з крабом',179,'sushi_california_crab.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Каліфорнія лосось -->
+  <div class="item">
+    <img src="sushi_california_salmon.jpg">
+    <div class="name">Каліфорнія з лососем</div>
+    <div class="price">189 грн</div>
+    <button class="btn" onclick="addToCart('Каліфорнія з лососем',189,'sushi_california_salmon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Каліфорнія тунець -->
+  <div class="item">
+    <img src="sushi_california_tuna.jpg">
+    <div class="name">Каліфорнія з тунцем</div>
+    <div class="price">189 грн</div>
+    <button class="btn" onclick="addToCart('Каліфорнія з тунцем',189,'sushi_california_tuna.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Дракон -->
+  <div class="item">
+    <img src="sushi_dragon.jpg">
+    <div class="name">Дракон</div>
+    <div class="price">249 грн</div>
+    <button class="btn" onclick="addToCart('Дракон',249,'sushi_dragon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Зелений дракон -->
+  <div class="item">
+    <img src="sushi_green_dragon.jpg">
+    <div class="name">Зелений дракон</div>
+    <div class="price">259 грн</div>
+    <button class="btn" onclick="addToCart('Зелений дракон',259,'sushi_green_dragon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Червоний дракон -->
+  <div class="item">
+    <img src="sushi_red_dragon.jpg">
+    <div class="name">Червоний дракон</div>
+    <div class="price">259 грн</div>
+    <button class="btn" onclick="addToCart('Червоний дракон',259,'sushi_red_dragon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Футомакі лосось -->
+  <div class="item">
+    <img src="sushi_futomaki_salmon.jpg">
+    <div class="name">Футомакі з лососем</div>
+    <div class="price">189 грн</div>
+    <button class="btn" onclick="addToCart('Футомакі з лососем',189,'sushi_futomaki_salmon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Футомакі тунець -->
+  <div class="item">
+    <img src="sushi_futomaki_tuna.jpg">
+    <div class="name">Футомакі з тунцем</div>
+    <div  class="price">189 грн</div>
+    <button class="btn" onclick="addToCart('Футомакі з тунцем',189,'sushi_futomaki_tuna.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Оніґірі -->
+  <div class="item">
+    <img src="sushi_onigiri_salmon.jpg">
+    <div class="name">Оніґірі з лососем</div>
+    <div class="price">99 грн</div>
+    <button class="btn" onclick="addToCart('Оніґірі з лососем',99,'sushi_onigiri_salmon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Вега-рол -->
+  <div class="item">
+    <img src="sushi_vega.jpg">
+    <div class="name">Вега рол</div>
+    <div class="price">129 грн</div>
+    <button class="btn" onclick="addToCart('Вега рол',129,'sushi_vega.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Запечений рол краб -->
+  <div class="item">
+    <img src="sushi_baked_crab.jpg">
+    <div class="name">Запечений рол з крабом</div>
+    <div class="price">159 грн</div>
+    <button class="btn" onclick="addToCart('Запечений рол з крабом',159,'sushi_baked_crab.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Запечений лосось -->
+  <div class="item">
+    <img src="sushi_baked_salmon.jpg">
+    <div class="name">Запечений рол з лососем</div>
+    <div class="price">169 грн</div>
+    <button class="btn" onclick="addToCart('Запечений рол з лососем',169,'sushi_baked_salmon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Сет Філадельфія -->
+  <div class="item">
+    <img src="sushi_set_phila.jpg">
+    <div class="name">Сет Філадельфія</div>
+    <div class="price">399 грн</div>
+    <button class="btn" onclick="addToCart('Сет Філадельфія',399,'sushi_set_phila.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Сет Каліфорнія -->
+  <div class="item">
+    <img src="sushi_set_cali.jpg">
+    <div class="name">Сет Каліфорнія</div>
+    <div class="price">379 грн</div>
+    <button class="btn" onclick="addToCart('Сет Каліфорнія',379,'sushi_set_cali.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Сет Family -->
+  <div class="item">
+    <img src="sushi_set_family.jpg">
+    <div class="name">Сет Family</div>
+    <div class="price">499 грн</div>
+    <button class="btn" onclick="addToCart('Сет Family',499,'sushi_set_family.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Сет Лосось Мікс -->
+  <div class="item">
+    <img src="sushi_set_salmonmix.jpg">
+    <div class="name">Сет Лосось Мікс</div>
+    <div class="price">449 грн</div>
+    <button class="btn" onclick="addToCart('Сет Лосось Мікс',449,'sushi_set_salmonmix.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Сет Party -->
+  <div class="item">
+    <img src="sushi_set_party.jpg">
+    <div class="name">Сет Паті</div>
+    <div class="price">599 грн</div>
+    <button class="btn" onclick="addToCart('Сет Паті',599,'sushi_set_party.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+</div>
+
+<a class="back" href="index.html">⬅ Назад на головну</a>
+
+</body>
+</html>
