@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOOD DELIVERY</title>
+
+<script src="cart.js"></script>
+
+<style>
+  body { margin:0; padding:0; font-family:Arial; background:#111; color:white; }
+
+  .logo {
+    position:fixed; top:15px; left:15px;
+    width:70px; height:70px;
+    border-radius:12px; cursor:pointer;
+    border:2px solid #ffcc00; object-fit:cover;
+    z-index:1000;
+  }
+
+  .popup-title {
+    position:absolute;
+    top:20px; left:50%; transform:translateX(-50%);
+    background:#ffcc00; padding:15px 30px;
+    font-size:28px; font-weight:bold;
+    border-radius:10px; color:black;
+  }
+
+  .dots-menu {
+    position:fixed; top:25px; right:25px;
+    display:flex; gap:6px; cursor:pointer;
+    z-index:1500;
+  }
+  .dot {
+    width:10px; height:10px;
+    background:white; border-radius:50%;
+  }
+
+  .dropdown-menu {
+    position:fixed; top:60px; right:20px;
+    background:#222; border:2px solid #ffcc00;
+    width:170px; border-radius:12px;
+    display:none; flex-direction:column;
+    z-index:2000;
+  }
+  .dropdown-item {
+    padding:12px; border-bottom:1px solid #444;
+    color:#ffcc00; cursor:pointer; font-size:18px;
+  }
+  .dropdown-item:hover { background:#333; }
+
+  .promo-box {
+    margin-top:120px; background:#222;
+    border:3px solid #ffcc00; border-radius:15px;
+    padding:20px; width:90%; margin:auto;
+    text-align:center;
+  }
+  .promo-slide {
+    background:#333; padding:25px;
+    border-radius:12px; font-size:22px;
+    min-height:80px;
+  }
+
+  .categories {
+    margin-top:40px; padding:20px;
+    display:grid; grid-template-columns:repeat(2,1fr);
+    gap:15px;
+  }
+  .cat-btn {
+    position:relative; height:160px;
+    border-radius:12px; overflow:hidden;
+    cursor:pointer; background:#333;
+  }
+  .cat-btn img {
+    width:100%; height:100%;
+    object-fit:cover; opacity:.7;
+  }
+  .cat-btn:hover img { opacity:1; }
+  .cat-btn span {
+    position:absolute; bottom:10px; left:10px;
+    font-size:22px; font-weight:bold;
+    text-shadow:0 0 5px black;
+  }
+
+  footer {
+    margin-top:40px; background:#222;
+    padding:25px; text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<img src="logo.jpg" class="logo" onclick="location.href='indexx.html'">
+
+<div class="popup-title">FOOD DELIVERY</div>
+
+<div class="dots-menu" onclick="toggleMenu()">
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+
+<div id="menu" class="dropdown-menu">
+  <div class="dropdown-item">Акаунт</div>
+  <div class="dropdown-item">Підтримка</div>
+  <div class="dropdown-item">Баланс</div>
+  <div class="dropdown-item" onclick="location.href='cart.html'">🛒 Кошик</div>
+</div>
+
+<div class="promo-box">
+  <h2>Тимчасові пропозиції</h2>
+  <div class="promo-slide" id="promoText"></div>
+</div>
+
+<div class="categories">
+  <div class="cat-btn" onclick="location.href='pizza.html'">
+    <img src="pizza.jpg"><span>Піца</span>
+  </div>
+  <div class="cat-btn" onclick="location.href='sushi.html'">
+    <img src="sushi.jpg"><span>Суші</span>
+  </div>
+  <div class="cat-btn" onclick="location.href='burgers.html'">
+    <img src="burger.jpg"><span>Бургери</span>
+  </div>
+  <div class="cat-btn" onclick="location.href='drinks.html'">
+    <img src="drinks.jpg"><span>Напої</span>
+  </div>
+  <div class="cat-btn" onclick="location.href='fries.html'">
+    <img src="fries.jpg"><span>Картопля</span>
+  </div>
+</div>
+
+<footer>
+  Контакти: +380682768810 <br> © 2025 FOOD DELIVERY
+</footer>
+
+<script>
+function toggleMenu(){
+  let m=document.getElementById("menu");
+  m.style.display = m.style.display==="flex" ? "none" : "flex";
+}
+
+const promoTexts=[
+  "🍕 Купуйте піцу і суші — отримайте 10% знижки!",
+  "🚚 Безкоштовна доставка від 350 грн!",
+  "🍔 Купи бургер — напій у подарунок!",
+  "🎉 Знижка 15% на великі сети!"
+];
+let pi=0;
+
+function showPromo(){
+  let el=document.getElementById("promoText");
+  el.innerHTML=promoTexts[pi];
+  pi=(pi+1)%promoTexts.length;
+}
+showPromo();
+setInterval(showPromo,3000);
+</script>
+
+</body>
+</html>

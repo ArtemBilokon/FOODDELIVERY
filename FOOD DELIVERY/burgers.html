@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Бургери — Food Delivery</title>
+<script src="cart.js"></script>
+
+<style>
+  body {
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ffcc00;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .item {
+    background: #222;
+    padding: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #333;
+    transition: 0.3s;
+  }
+
+  .item:hover {
+    border-color: #ffcc00;
+    transform: scale(1.03);
+  }
+
+  .item img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .name {
+    font-size: 20px;
+    margin: 10px 0 5px;
+    color: #ffcc00;
+  }
+
+  .price {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #bbb;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .btn:hover {
+    background: #ffaa00;
+  }
+
+  .back {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 22px;
+    color: #ffcc00;
+    text-decoration: none;
+  }
+
+  .back:hover {
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<h1>🍔 Меню бургерів</h1>
+
+<div class="grid">
+
+  <!-- Класичний бургер -->
+  <div class="item">
+    <img src="burger_classic.jpg">
+    <div class="name">Класичний бургер</div>
+    <div class="price">149 грн</div>
+    <button class="btn" onclick="addToCart('Класичний бургер',149,'burger_classic.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Чізбургер -->
+  <div class="item">
+    <img src="burger_cheese.jpg">
+    <div class="name">Чізбургер</div>
+    <div class="price">159 грн</div>
+    <button class="btn" onclick="addToCart('Чізбургер',159,'burger_cheese.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Дабл Чізбургер -->
+  <div class="item">
+    <img src="burger_double_cheese.jpg">
+    <div class="name">Дабл Чізбургер</div>
+    <div class="price">189 грн</div>
+    <button class="btn" onclick="addToCart('Дабл Чізбургер',189,'burger_double_cheese.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Бекон бургер -->
+  <div class="item">
+    <img src="burger_bacon.jpg">
+    <div class="name">Бекон бургер</div>
+    <div class="price">179 грн</div>
+    <button class="btn" onclick="addToCart('Бекон бургер',179,'burger_bacon.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Бекон чізбургер -->
+  <div class="item">
+    <img src="burger_bacon_cheese.jpg">
+    <div class="name">Бекон чізбургер</div>
+    <div class="price">189 грн</div>
+    <button class="btn" onclick="addToCart('Бекон чізбургер',189,'burger_bacon_cheese.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- BBQ бургер -->
+  <div class="item">
+    <img src="burger_bbq.jpg">
+    <div class="name">BBQ бургер</div>
+    <div class="price">199 грн</div>
+    <button class="btn" onclick="addToCart('BBQ бургер',199,'burger_bbq.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Гриль бургер -->
+  <div class="item">
+    <img src="burger_grill.jpg">
+    <div class="name">Гриль бургер</div>
+    <div class="price">209 грн</div>
+    <button class="btn" onclick="addToCart('Гриль бургер',209,'burger_grill.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Техас бургер -->
+  <div class="item">
+    <img src="burger_texas.jpg">
+    <div class="name">Техас бургер</div>
+    <div class="price">219 грн</div>
+    <button class="btn" onclick="addToCart('Техас бургер',219,'burger_texas.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Стейк бургер -->
+  <div class="item">
+    <img src="burger_steak.jpg">
+    <div class="name">Стейк бургер</div>
+    <div class="price">249 грн</div>
+    <button class="btn" onclick="addToCart('Стейк бургер',249,'burger_steak.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Дабл мʼясний -->
+  <div class="item">
+    <img src="burger_double_meat.jpg">
+    <div class="name">Дабл мʼясний бургер</div>
+    <div class="price">239 грн</div>
+    <button class="btn" onclick="addToCart('Дабл мʼясний бургер',239,'burger_double_meat.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Чікен бургер -->
+  <div class="item">
+    <img src="burger_chicken.jpg">
+    <div class="name">Чікен бургер</div>
+    <div class="price">149 грн</div>
+    <button class="btn" onclick="addToCart('Чікен бургер',149,'burger_chicken.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Гриль чікен -->
+  <div class="item">
+    <img src="burger_chicken_grill.jpg">
+    <div class="name">Гриль Чікен</div>
+    <div class="price">169 грн</div>
+    <button class="btn" onclick="addToCart('Гриль Чікен',169,'burger_chicken_grill.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Спайсі чікен -->
+  <div class="item">
+    <img src="burger_chicken_spicy.jpg">
+    <div class="name">Спайсі Чікен</div>
+    <div class="price">169 грн</div>
+    <button class="btn" onclick="addToCart('Спайсі Чікен',169,'burger_chicken_spicy.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Преміум бургер -->
+  <div class="item">
+    <img src="burger_premium.jpg">
+    <div class="name">Преміум бургер</div>
+    <div class="price">259 грн</div>
+    <button class="btn" onclick="addToCart('Преміум бургер',259,'burger_premium.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+  <!-- Трюфель бургер -->
+  <div class="item">
+    <img src="burger_truffle.jpg">
+    <div class="name">Трюфель бургер</div>
+    <div class="price">299 грн</div>
+    <button class="btn" onclick="addToCart('Трюфель бургер',299,'burger_truffle.jpg')">
+      Додати в кошик
+    </button>
+  </div>
+
+</div>
+
+<a class="back" href="indexx.html">⬅ Назад на головну</a>
+
+</body>
+</html>
