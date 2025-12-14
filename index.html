@@ -2,18 +2,100 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Food Delivery</title>
+  <title>FOOD DELIVERY</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1 style="color:red; text-align:center; margin-top:100px;">
-  ТЕСТ: HTML ПРАЦЮЄ
-</h1>
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">FOOD DELIVERY</a>
 
-<p style="color:white; text-align:center;">
-  Якщо ти це бачиш — проблема була в старому коді
-</p>
+  <div class="menu-dots" onclick="toggleMenu()">⋮</div>
+
+  <div class="dropdown" id="dropdownMenu">
+    <a href="cart.html">🛒 Кошик</a>
+    <a href="#">👤 Акаунт</a>
+    <a href="#">💬 Підтримка</a>
+    <a href="#">💰 Баланс</a>
+    <a href="#">🎟 Купони</a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Смачна доставка їжі</h1>
+    <p>Піцца • Суші • Бургери • Напої • Картопля</p>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+
+    <a href="pizza.html" class="category">
+      <img src="images/pizza.jpg" alt="Піцца">
+      <span>🍕 Піцца</span>
+    </a>
+
+    <a href="sushi.html" class="category">
+      <img src="images/sushi.jpg" alt="Суші">
+      <span>🍣 Суші</span>
+    </a>
+
+    <a href="burgers.html" class="category">
+      <img src="images/burger.jpg" alt="Бургери">
+      <span>🍔 Бургери</span>
+    </a>
+
+    <a href="drinks.html" class="category">
+      <img src="images/drinks.jpg" alt="Напої">
+      <span>🥤 Напої</span>
+    </a>
+
+    <a href="fries.html" class="category">
+      <img src="images/fries.jpg" alt="Картопля">
+      <span>🍟 Картопля</span>
+    </a>
+
+  </section>
+
+  <!-- SLIDER -->
+  <section class="slider">
+    <h2>🔥 Тимчасові пропозиції</h2>
+
+    <div class="slide active">🍕 Купуй піцу + суші — знижка 10%</div>
+    <div class="slide">🍔 Бургер + напій — вигідна ціна</div>
+    <div class="slide">🍣 Сети суші — знижка до 15%</div>
+    <div class="slide">🍟 Картопля XL у подарунок</div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>📞 Контакти: <span>+380 68 276 88 10</span></p>
+  <p>© 2025 FOOD DELIVERY</p>
+</footer>
+
+<!-- JS -->
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('dropdownMenu');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  // Slider
+  let slides = document.querySelectorAll('.slide');
+  let index = 0;
+
+  setInterval(() => {
+    slides.forEach(slide => slide.classList.remove('active'));
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 3000);
+</script>
 
 </body>
 </html>
